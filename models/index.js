@@ -4,33 +4,33 @@ const Weather = require('./Weather')
 const Photo = require('./Photo')
 
 User.hasMany(Event, {
-  foreignKey: '',
+  foreignKey: 'id',
   onDelete: 'CASCADE'
 });
 
-Event.belongsTo(Blog, {
-  foreignKey: ''
+Event.belongsTo(User, {
+  foreignKey: 'id'
 })
 
-Event.hasOne(Weather, {
+// Event.hasOne(Weather, {
 
-})
+// })
 
-Weather.belongsTo(Event, {
+// Weather.belongsTo(Event, {
 
-})
+// })
 
-Event.hasMany(Photo, {
+// Event.hasMany(Photo, {
 
-})
+// })
 
-Photo.belongsTo(Event, {
+// Photo.belongsTo(Event, {
 
-})
+// })
 
-Photo.belongsTo(User, {
+// Photo.belongsTo(User, {
 
-})
+// })
 
 
 module.exports = { User, Event, Weather, Photo };
