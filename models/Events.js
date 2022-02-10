@@ -23,6 +23,13 @@ Events.init(
       event_description: {
         type: DataTypes.STRING,
         allowNull: false,
+      },
+      user_id: {
+        type: DataTypes.INTEGER,
+        reference: {
+          model: 'User',
+          key: 'id'
+        }
       }
     },
     {
