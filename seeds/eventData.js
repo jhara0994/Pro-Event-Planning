@@ -5,7 +5,7 @@ const eventData = [
         id: 1,
         title: 'Party like its 1999',
         event_date: '4/20/2022',
-        event_description: 'A stoner party to end all stoner parties',
+        event_description: 'Smoke shows and good jams are the highlight of this event.',
         user_id: 1
     },
     {

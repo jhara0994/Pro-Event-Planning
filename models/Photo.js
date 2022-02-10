@@ -15,13 +15,13 @@ Photo.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        event_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'Event',
-                key: 'id'
-            }
-        },
+        // event_id: {
+        //     type: DataTypes.INTEGER,
+        //     // references: {
+        //     //     model: 'Event',
+        //     //     key: 'id'
+        //     // }
+        // },
         user_id: {
             type: DataTypes.INTEGER,
             reference: {

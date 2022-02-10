@@ -6,12 +6,12 @@ const withAuth = require('../utils/auth.js')
 router.get('/', async (req, res) => {
     try {
       const eventData = await Events.findAll({
-        // include: [
-        //   {
-        //     model: Painting,
-        //     attributes: ['filename', 'description'],
-        //   },
-        // ],
+        include: [
+          {
+            model: 'User',
+            attributes: 'id',
+          },
+        ],
       });
   
       const events = eventData.map((Events) =>

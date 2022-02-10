@@ -9,7 +9,8 @@ User.hasMany(Event, {
 });
 
 Event.belongsTo(User, {
-  foreignKey: 'id'
+  foreignKey: 'id',
+  onDelete: 'CASCADE'
 })
 
 // Event.hasOne(Weather, {
