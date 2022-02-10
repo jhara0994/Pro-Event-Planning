@@ -16,7 +16,9 @@ const seedAll = async () => {
   })
   console.log('\n----- USERS SYNCED -----\n');
 
-  // await seedEvents();
+  // await Events.bulkCreate(seedEvents, {
+  //   returning: true
+  // })
   // console.log('\n----- EVENTS SEEDED -----\n');
 
   // await seedWeather();

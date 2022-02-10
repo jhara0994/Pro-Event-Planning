@@ -23,6 +23,7 @@ Events.init(
       event_description: {
         type: DataTypes.STRING,
         allowNull: false,
+        defaultValue: 'This is a default message'
       },
       user_id: {
         type: DataTypes.INTEGER,
