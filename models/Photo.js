@@ -11,27 +11,17 @@ Photo.init(
       primaryKey: true,
       autoIncrement: true,
     },
-<<<<<<< HEAD
-    {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'photo',
-      }
-    )
-=======
     image: {
-      type: DataTypes.STRING,
-      allowNull: false,
+        type: DataTypes.STRING,
+        allowNull: false,
     },
-    // event_id: {
-    //     type: DataTypes.INTEGER,
-    //     // references: {
-    //     //     model: 'Event',
-    //     //     key: 'id'
-    //     // }
-    // },
+    event_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'Events',
+            key: 'id'
+        }
+    },
     user_id: {
       type: DataTypes.INTEGER,
       reference: {
@@ -48,6 +38,6 @@ Photo.init(
     modelName: "photo",
   }
 );
->>>>>>> main
+
 
 module.exports = Photo;
