@@ -8,6 +8,7 @@
     "express-session": "^1.17.2",
     "express-sessions": "^1.0.6",
     "mysql2": "^2.3.3",
+    "nodemailer": "^6.7.2",
     "sequelize": "^6.16.0"
   }
 }
