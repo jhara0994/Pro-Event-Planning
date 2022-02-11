@@ -1,14 +1,14 @@
 const User = require('./User');
-const Event = require('./Events');
+const Events = require('./Events');
 const Weather = require('./Weather')
 const Photo = require('./Photo')
 
-User.hasMany(Event, {
+User.hasMany(Events, {
   foreignKey: 'id',
   onDelete: 'CASCADE'
 });
 
-Event.belongsTo(User, {
+Events.belongsTo(User, {
   foreignKey: 'id',
   onDelete: 'CASCADE'
 })
@@ -34,4 +34,4 @@ Event.belongsTo(User, {
 // })
 
 
-module.exports = { User, Event, Weather, Photo };
+module.exports = { User, Events, Weather, Photo };
