@@ -6,21 +6,18 @@ const withAuth = require('../utils/auth.js')
 router.get('/', async (req, res) => {
     try {
       const eventData = await Events.findAll({
-        include: [
+        include:
           {
-            model: 'User',
-            attributes: 'id',
+            model: User,
+            attributes: [ 'id' ],
           },
-        ],
       });
   
-      const events = eventData.map((Events) =>
-        gallery.get({ plain: true })
-      );
+      const events = eventData.map((Events) => Events.get({ plain: true }));
   
       res.render('homepage', {
-        galleries,
-        loggedIn: req.session.loggedIn,
+        events,
+        logged_in: req.session.logged_in,
       });
     } catch (err) {
       console.log(err);
@@ -32,7 +29,7 @@ router.get('/', async (req, res) => {
 
 // Todo: GET route to redirect for login
 router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.session.logged_in) {
       res.redirect('/');
       return;
     }

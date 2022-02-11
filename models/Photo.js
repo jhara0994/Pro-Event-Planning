@@ -35,7 +35,7 @@ Photo.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'events',
+        modelName: 'photo',
       }
     )
 
