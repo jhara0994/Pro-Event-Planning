@@ -2,10 +2,11 @@ const User = require('./User');
 const Events = require('./Events');
 const Weather = require('./Weather')
 const Photo = require('./Photo')
+const Rsvp = require('./Rsvp');
 
 User.hasMany(Events);
 
-Events.belongsTo(User)
+Events.belongsTo(User);
 
 // Event.hasOne(Weather, {
 
@@ -15,11 +16,15 @@ Events.belongsTo(User)
 
 // })
 
-Events.hasMany(Photo)
+Events.hasMany(Photo);
 
-Photo.belongsTo(Events)
+Photo.belongsTo(Events);
 
-Photo.belongsTo(User)
+Photo.belongsTo(User);
+
+Events.hasMany(Rsvp);
+
+Rsvp.belongsTo(Events);
 
 
-module.exports = { User, Events, Weather, Photo };
+module.exports = { User, Events, Weather, Photo, Rsvp };
