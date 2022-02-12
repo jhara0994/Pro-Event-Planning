@@ -1,6 +1,6 @@
 const User = require('./User');
 const Events = require('./Events');
-const Weather = require('./Weather')
+// const Weather = require('./Weather')
 const Photo = require('./Photo')
 const Rsvp = require('./Rsvp');
 
@@ -27,4 +27,4 @@ Events.hasMany(Rsvp);
 Rsvp.belongsTo(Events);
 
 
-module.exports = { User, Events, Weather, Photo, Rsvp };
+module.exports = { User, Events, Photo, Rsvp };

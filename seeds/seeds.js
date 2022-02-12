@@ -1,10 +1,10 @@
 const sequelize = require("../config/connection");
-const { User, Events, Photo, Weather, Rsvp } = require("../models");
+const { User, Events, Photo, Rsvp } = require("../models");
 
 
 const seedUsers = require('./userData.json');
 const seedEvents = require('./eventData.json');
-const seedWeather = require('./weatherData');
+// const seedWeather = require('./weatherData');
 const seedPhotos = require('./photoData.json');
 const seedRsvp = require('./rsvpData.json');
 
