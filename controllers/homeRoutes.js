@@ -13,10 +13,16 @@ router.get("/", async (req, res) => {
     });
     
     const events = eventData.map((Events) => Events.get({ plain: true }));
-    res.render("homepage", {
+    res.status(200).json(events);
+    /*res.render("homepage", {
       events,
+<<<<<<< HEAD
       logged_in: req.session.logged_in,
     });
+=======
+      loggedIn: req.session.loggedIn,
+    });*/
+>>>>>>> 5c2018a (Added sendEmail util file)
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

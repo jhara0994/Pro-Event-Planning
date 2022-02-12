@@ -5,8 +5,7 @@ const { Events, Photo, User } = require('../../models');
 router.get('/', async (req, res) => {
     try {
       const eventData = await Events.findAll({
-        include: [{ model: User }],
-        include: [{ model: Photo }],
+        include: [{ model: User },{ model: Photo }],
       });
       res.status(200).json(eventData);
     } catch (err) {

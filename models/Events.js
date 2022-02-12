@@ -34,9 +34,16 @@ Events.init(
         allowNull: false,
         defaultValue: 'This is a default message'
       },
-      user_id: {
+      creator_id: {
         type: DataTypes.INTEGER,
-        reference: {
+        references: {
+          model: 'user',
+          key: 'id'
+        }
+      },
+      guest_id: {
+        type: DataTypes.INTEGER,
+        references: {
           model: 'user',
           key: 'id'
         }
