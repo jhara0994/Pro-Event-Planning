@@ -1,5 +1,6 @@
+
 function GetWeatherdata(city) {
-    fetch (`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2a962a7b9345f5d3ab23257ed8d563d6`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2a962a7b9345f5d3ab23257ed8d563d6`)
     .then(response => response.json())
     .then(data => {
         console.log(data)
@@ -76,7 +77,6 @@ function displayicon (data) {
     return `<img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png">
     `
 }
-function displayerror(){}
 function kelvintocelsius(kelvin){
     let celsius = kelvin - 273.15;
     return celsius;
@@ -106,4 +106,6 @@ function display(id,text, title) {
 }
 
 
-GetWeatherdata("Atlanta")
+GetWeatherdata("Atlanta");
+
+ module.exports = {GetWeatherdata/*, displayweather, displayuv, displayoneday, display5dayforecast, displayicon, kelvintocelsius, celsiustofahrenheit, kelvintofahrenheit, displaytemperature, display*/}
