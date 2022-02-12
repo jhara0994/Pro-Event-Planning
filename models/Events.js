@@ -20,6 +20,15 @@ Events.init(
         allowNull: false,
         defaultValue: DataTypes.NOW,
       },
+      location_city: {
+        type: DataTypes. STRING,
+        allowNull: false,
+      },
+      location_state: {
+        type: DataTypes. STRING,
+        allowNull: false,
+        len: [2]
+      },
       event_description: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -28,7 +37,7 @@ Events.init(
       user_id: {
         type: DataTypes.INTEGER,
         reference: {
-          model: 'User',
+          model: 'user',
           key: 'id'
         }
       }
