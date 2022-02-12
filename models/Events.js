@@ -51,31 +51,6 @@ Events.init(
       }
     }
   },
-  event_description: {
-  type: DataTypes.STRING,
-  allowNull: false,
-  defaultValue: 'This is a default message'
-},
-  user_id: {
-  type: DataTypes.INTEGER,
-  reference: {
-    model: 'user',
-    key: 'id'
-  }
-}
-  },
-  event_description: {
-  type: DataTypes.STRING,
-  allowNull: false,
-  defaultValue: 'This is a default message'
-},
-  user_id: {
-  type: DataTypes.INTEGER,
-  reference: {
-    model: 'User',
-    key: 'id'
-  }
-},
   {
     sequelize,
     timestamps: false,
