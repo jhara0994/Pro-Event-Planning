@@ -25,10 +25,10 @@ const seedAll = async () => {
   // await seedWeather();
   // console.log('\n----- WEATHER SEEDED -----\n');
 
-  await Photo.bulkCreate(seedPhotos, {
-    returning: true
-  });
-  console.log('\n----- EVENT PHOTOS SEEDED -----\n');
+  // await Photo.bulkCreate(seedPhotos, {
+  //   returning: true
+  // });
+  // console.log('\n----- EVENT PHOTOS SEEDED -----\n');
 
   process.exit(0);
 };

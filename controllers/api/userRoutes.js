@@ -1,6 +1,18 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Events } = require('../../models');
 // const withAuth = require('./utils/auth')
+
+// GET all users - test route to be deleted.
+router.get('/', async (req, res) => {
+  try {
+    const userData = await User.findAll({
+      include: [{ model: Events }],
+    });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // CREATE new user
 router.post('/', async (req, res) => {
