@@ -44,8 +44,7 @@ Events.init(
     model: 'User',
     key: 'id'
   }
-}
-  },
+},
   {
     sequelize,
     timestamps: false,
