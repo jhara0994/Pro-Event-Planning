@@ -36,6 +36,7 @@ Events.init(
       },
       creator_id: {
         type: DataTypes.INTEGER,
+        allowNull:false,
         references: {
           model: 'user',
           key: 'id'
@@ -43,6 +44,7 @@ Events.init(
       },
       guest_id: {
         type: DataTypes.INTEGER,
+        allowNull: true,
         references: {
           model: 'user',
           key: 'id'
