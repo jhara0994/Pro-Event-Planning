@@ -1,6 +1,5 @@
 const User = require('./User');
 const Events = require('./Events');
-// const Weather = require('./Weather')
 const Photo = require('./Photo')
 const Rsvp = require('./Rsvp');
 
