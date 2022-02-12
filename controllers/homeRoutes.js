@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
         attributes: ["id"],
       },
     });
-    
+
     const events = eventData.map((Events) => Events.get({ plain: true }));
     res.status(200).json(events);
     /*res.render("homepage", {
@@ -26,13 +26,13 @@ router.get("/", async (req, res) => {
 
 // Todo: GET route to redirect for login
 router.get('/login', (req, res) => {
-    if (req.session.logged_in) {
-      res.redirect('/');
-      return;
-    }
-  
-    res.render('login');
-  });
-  
-  module.exports = router;
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
+});
+
+module.exports = router;
 
