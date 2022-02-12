@@ -18,14 +18,14 @@ Photo.init(
     event_id: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'Events',
+            model: 'events',
             key: 'id'
         }
     },
     user_id: {
       type: DataTypes.INTEGER,
       reference: {
-        model: "User",
+        model: "user",
         key: "id"
       },
     },
