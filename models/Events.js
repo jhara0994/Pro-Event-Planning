@@ -28,7 +28,7 @@ Events.init(
       user_id: {
         type: DataTypes.INTEGER,
         reference: {
-          model: 'User',
+          model: 'user',
           key: 'id'
         }
       }

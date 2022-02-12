@@ -12,21 +12,21 @@ Photo.init(
       autoIncrement: true,
     },
     image: {
-      type: DataTypes.STRING,
-      allowNull: false,
+        type: DataTypes.STRING,
+        allowNull: false,
     },
-    // event_id: {
-    //     type: DataTypes.INTEGER,
-    //     // references: {
-    //     //     model: 'Event',
-    //     //     key: 'id'
-    //     // }
-    // },
+    event_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'events',
+            key: 'id'
+        }
+    },
     user_id: {
       type: DataTypes.INTEGER,
       reference: {
-        model: "User",
-        key: "id",
+        model: "user",
+        key: "id"
       },
     },
   },
@@ -38,5 +38,6 @@ Photo.init(
     modelName: "photo",
   }
 );
+
 
 module.exports = Photo;
