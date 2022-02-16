@@ -1,17 +1,23 @@
-<script src="js/weather.js"></script>
-<div id="weather">
-    <h1 id="cityname"> 
-
-    </h1>
-    <h2 id="date"></h2>
-    <div id="icon"></div>
-    <div id="temperature"></div>
-    <div id="humidity"></div>
-    <div id="windspeed"></div>
-    <div id="uvindex"></div>
-    
-
-   
-</div> 
-<div id="fivedayforecast"></div>
+<!-- Loop over each object in the projects array -->
+{{#each events as |event| }}
+<div class="row mb-4 project">
+  <div class="col-md-5">
+    <h2>
+      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
+      {{{get_display_displayIcon}}}
+      <a href="/event/{{event.id}}">{{event.name}}</a>
+    </h2>
+    <p>
+      <span href="party.jpeg" for="img" aria-label="photo"></span>
+      <!-- Pass needed_funding value to the helper function -->
+    </p>
+  </div>
+  <div class="col-md-7">
+    <a href="/event/{{event.id}}" class="events-btn">
+      {{event.title}}
+    </a>
+  </div>
 </div>
+{{/each}}
+
+

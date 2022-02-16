@@ -10,7 +10,7 @@ const routes = require("./controllers");
 const sequelize = require("./config/connection");
 
 const app = express();
-const PORT = process.env.PORT || 3306;
+const PORT = process.env.PORT || 3307;
 
 const helpers = {};
 
@@ -44,9 +44,9 @@ sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
     console.log("Now listening");
   //Need to use cron.schedule to run the a weather query daily, and then send an email based on the results.
-  cron.schedule('* * * * * *', function() {
-  console.log('running a task every second');
-});
+  // cron.schedule('* * * * * *', function() {
+  // console.log('running a task every second');
+// });
 }
   );
 });

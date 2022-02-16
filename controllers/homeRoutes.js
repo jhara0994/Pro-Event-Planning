@@ -13,14 +13,33 @@ router.get("/", async (req, res) => {
     });
 
     const events = eventData.map((Events) => Events.get({ plain: true }));
-    res.status(200).json(events);
     res.render("homepage", {
       events,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    res.status(500);
+  }
+});
+
+router.get("/event/:id", async (req, res) => {
+  try {
+    const eventData = await Events.findByPk(req.params.id, {
+      include: {
+        model: User,
+        attributes: ["id"],
+      },
+    });
+
+    const events = eventData.get({ plain: true });
+    res.render("event", {
+      events,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500);
   }
 });
 

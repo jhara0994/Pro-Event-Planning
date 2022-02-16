@@ -13,6 +13,29 @@ router.get('/', async (req, res) => {
     }
 });
 
+// GET Events by id
+router.get('/:id', async (req, res) => {
+  // find one event by its `id` value
+  try {
+    const eventData = await Events.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [{ model: User },{ model: Photo }],
+    });
+
+    if (!eventData) {
+      res.status(404).json({ message: 'No event found with that id!' });
+      return;
+    }
+
+    res.status(200).json(eventData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 // CREATE new event
 router.post('/', async (req, res) => {
     try {
