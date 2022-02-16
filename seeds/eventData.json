@@ -7,7 +7,8 @@
         "event_description": "Smoke shows and good jams are the highlight of this event.",
         "fee": 0,
         "creator_id": 1,
-        "creator_name": "JsCoder"
+        "creator_name": "JsCoder",
+        "user_id": 1
     },
     {
         "title": "Welcome to the Metaverse",
@@ -17,7 +18,8 @@
         "event_description": "Welcome to the metaverse! Where all your dreams can come true virtually!",
         "fee": 50,
         "creator_id": 2,
-        "creator_name": "GTStudent"
+        "creator_name": "GTStudent",
+        "user_id": 2
     },
     {
         "title": "Music City Conference",
@@ -27,7 +29,8 @@
         "event_description": "Join us for a music-filled conference exploring the history of music and the current state of the industry. ",
         "fee": 100,
         "creator_id": 5,
-        "creator_name": "MetaBit"
+        "creator_name": "MetaBit",
+        "user_id": 5
     },
     {
         "title": "Screen Actors Guild Association",
@@ -37,6 +40,7 @@
         "event_description": "The SAG is having a conference to discuss movie making in a pandemic world and current labor negotiations between the guild and top level production companies.",
         "fee": 150,
         "creator_id": 7,
-        "creator_name": "SirTechie"
+        "creator_name": "SirTechie",
+        "user_id": 7
     }
 ]

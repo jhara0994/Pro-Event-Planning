@@ -108,4 +108,4 @@ function display(id,text, title) {
 
 GetWeatherdata("Atlanta");
 
- module.exports = {GetWeatherdata/*, displayweather, displayuv, displayoneday, display5dayforecast, displayicon, kelvintocelsius, celsiustofahrenheit, kelvintofahrenheit, displaytemperature, display*/}
+ module.exports = {GetWeatherdata, displayweather, displayuv, displayoneday, display5dayforecast, displayicon, kelvintocelsius, celsiustofahrenheit, kelvintofahrenheit, displaytemperature, display}

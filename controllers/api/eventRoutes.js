@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Events, Photo, User } = require('../../models');
+const { Events, Photo, User, Guests } = require('../../models');
 
 // GET all Events
 router.get('/', async (req, res) => {
     try {
       const eventData = await Events.findAll({
-        include: [{ model: User },{ model: Photo }],
+        include: [{ model: Guests },{ model: Photo },{model: User}],
       });
       res.status(200).json(eventData);
     } catch (err) {

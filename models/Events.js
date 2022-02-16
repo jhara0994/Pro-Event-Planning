@@ -34,6 +34,7 @@ Events.init(
       allowNull: false,
       defaultValue: 'This is a default message'
     },
+<<<<<<< HEAD
     fee: {
       type: DataTypes.INTEGER
     },
@@ -45,16 +46,11 @@ Events.init(
     // //   }
     // },
     creator_id: {
+=======
+    user_id: {
+>>>>>>> main
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: {
-        model: 'user',
-        key: 'id'
-      }
-    },
-    guest_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
       references: {
         model: 'user',
         key: 'id'
