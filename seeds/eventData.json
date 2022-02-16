@@ -5,7 +5,7 @@
         "location_city": "Atlanta",
         "location_state": "GA",
         "event_description": "Smoke shows and good jams are the highlight of this event.",
-        "creator_id": 1
+        "user_id": 1
     },
     {
         "title": "Welcome to the Metaverse",
@@ -13,7 +13,7 @@
         "location_city": "Savannah",
         "location_state": "GA",
         "event_description": "Welcome to the metaverse! Where all your dreams can come true virtually!",
-        "creator_id": 2
+        "user_id": 2
     },
     {
         "title": "Music City Conference",
@@ -21,7 +21,7 @@
         "location_city": "Nashville",
         "location_state": "TN",
         "event_description": "Join us for a music-filled conference exploring the history of music and the current state of the industry. ",
-        "creator_id": 5
+        "user_id": 5
     },
     {
         "title": "Screen Actors Guild Association",
@@ -29,6 +29,6 @@
         "location_city": "Los Angeles",
         "location_state": "CA",
         "event_description": "The SAG is having a conference to discuss movie making in a pandemic world and current labor negotiations between the guild and top level production companies.",
-        "creator_id": 7
+        "user_id": 7
     }
 ]
