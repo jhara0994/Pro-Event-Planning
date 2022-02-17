@@ -10,7 +10,7 @@ const routes = require("./controllers");
 const sequelize = require("./config/connection");
 
 const app = express();
-const PORT = process.env.PORT || 3306;
+const PORT = process.env.PORT || 3307;
 
 const helpers = {};
 
@@ -26,7 +26,7 @@ const sess = {
 
 app.use(session(sess));
 
-const hbs = exphbs.create({helpers });
+const hbs = exphbs.create({ helpers });
 
 
 app.engine('handlebars', hbs.engine);
@@ -43,10 +43,10 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
     console.log("Now listening");
-  //Need to use cron.schedule to run the a weather query daily, and then send an email based on the results.
-  cron.schedule('* * * * * *', function() {
-  console.log('running a task every second');
-});
-}
+    //Need to use cron.schedule to run the a weather query daily, and then send an email based on the results.
+    //cron.schedule('* * * * * *', function () {
+    // console.log('running a task every second');
+    //});
+  }
   );
 });
