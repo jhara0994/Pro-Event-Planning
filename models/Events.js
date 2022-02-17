@@ -44,11 +44,14 @@ Events.init(
     // //     key: 'name'
     // //   }
     // },
-<<<<<<< HEAD
-    creator_id: {
-=======
+    // image: {
+    //   type: DataTypes.STRING,
+    //   references: {
+    //     model: 'photo',
+    //     key: 'image'
+    //   }
+    // },
     user_id: {
->>>>>>> main
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {

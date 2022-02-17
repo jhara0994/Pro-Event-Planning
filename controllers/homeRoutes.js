@@ -39,10 +39,6 @@ router.get("/event/:id", async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-<<<<<<< HEAD
-=======
-    res.status(500);
->>>>>>> main
   }
 });
 
