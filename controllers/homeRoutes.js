@@ -20,7 +20,6 @@ router.get("/", async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500);
-<<<<<<< HEAD
   }
 });
 
@@ -40,9 +39,6 @@ router.get("/event/:id", async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.status(500);
-=======
->>>>>>> main
   }
 });
 
