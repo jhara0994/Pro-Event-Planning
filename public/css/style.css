@@ -1,0 +1,57 @@
+header, .project:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+  }
+
+h1 {
+    text-align: center;
+    color: black;
+    background-color: lightblue;
+}
+
+h1:hover {
+    color: white;
+}
+
+h1:visited {
+    color: white;
+}
+  
+.no-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: #1b89bc;
+    text-decoration: none;
+    font-size: 100%;
+}
+  
+.no-button:hover {
+    color: #065b83;
+    text-decoration: underline;
+}
+
+nav {
+    position: relative;
+    margin: 0 auto;
+    background-color: lightblue;
+    text-align: center;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    background-color: lightseagreen;
+    height: 50px;
+}
+
+.container {
+    padding: 2px 16px;
+  }
