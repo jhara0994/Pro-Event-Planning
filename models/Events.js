@@ -44,7 +44,11 @@ Events.init(
     // //     key: 'name'
     // //   }
     // },
+<<<<<<< HEAD
     creator_id: {
+=======
+    user_id: {
+>>>>>>> main
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
