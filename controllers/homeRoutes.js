@@ -28,13 +28,18 @@ router.get("/event/:id", async (req, res) => {
     const eventData = await Events.findByPk(req.params.id, {
       include: {
         model: User,
-        attributes: ["id"],
+        attributes: ["id", "name"],
       },
     });
 
     const events = eventData.get({ plain: true });
+      let eventDate = new Date(events.event_date);
+      const month = eventDate.toLocaleString('default', { month: 'long' });
+      let formattedDate = `${month} ${eventDate.getDate()}, ${eventDate.getFullYear()} ${eventDate.toLocaleTimeString()}`;
+      console.log(formattedDate);
     res.render("event", {
       events,
+      formattedDate,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
