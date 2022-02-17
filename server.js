@@ -44,9 +44,9 @@ sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
     console.log("Now listening");
     //Need to use cron.schedule to run the a weather query daily, and then send an email based on the results.
-    //cron.schedule('* * * * * *', function () {
-    // console.log('running a task every second');
-    //});
+    //   cron.schedule('*/5 * * * * *', function() {
+    //   console.log('running a task every 5 seconds');
+    // });
   }
   );
 });

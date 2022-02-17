@@ -1,0 +1,15 @@
+<div class="row mb-4 project">
+  <div class="col-md-7">
+  <h2 class="event-title">Title: {{events.title}}</h2>
+  <p class="event-id">ID: {{events.id}}</p>
+  <p class="event-date">Date: {{events.event_date}}</p>
+  <p class="weather-icon">Weather: {{{get_display_displayIcon}}}</p>
+  <p class="event-desc">Description: {{events.event_description}}</p>
+  <p class="event-creator">Created by: User {{events.creator_id}}</p>
+  <img class="image" source={{photo.image}} aria-label="photo">Photo: </p>
+  <p class="event-price">Registration Fee: ${{events.fee}} </p>
+  <p>
+    <button class="btn btn-primary">Register Now</button>
+  </p>
+  </div>
+</div>

@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Events, Rsvp } = require('../../models');
+const { Events, Rsvp, User } = require('../../models');
 
 // GET all RSVPs
 router.get('/', async (req, res) => {
     try {
       const rsvpData = await Rsvp.findAll({
-        include: [{ model: Events}],
+        include: [Events, {model: User, attributes: {exclude: 'password'}}]
       });
       res.status(200).json(rsvpData);
     } catch (err) {

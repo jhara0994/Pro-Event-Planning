@@ -1,11 +1,12 @@
 const sequelize = require("../config/connection");
-const { User, Events, Photo, Rsvp } = require("../models");
+const { User, Events, Photo, Rsvp, Guests } = require("../models");
 
 
 const seedUsers = require('./userData.json');
 const seedEvents = require('./eventData.json');
 const seedPhotos = require('./photoData.json');
 const seedRsvp = require('./rsvpData.json');
+const seedGuests = require('./guestsData.json');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
@@ -31,6 +32,11 @@ const seedAll = async () => {
     returning: true
   });
   console.log('\n----- RSVPs SEEDED -----\n');
+
+  await Guests.bulkCreate(seedGuests, {
+    returning: true
+  });
+  console.log('\n----- GUESTS SEEDED -----\n');
 
   process.exit(0);
 };

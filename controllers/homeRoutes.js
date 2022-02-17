@@ -23,6 +23,26 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/event/:id", async (req, res) => {
+  try {
+    const eventData = await Events.findByPk(req.params.id, {
+      include: {
+        model: User,
+        attributes: ["id"],
+      },
+    });
+
+    const events = eventData.get({ plain: true });
+    res.render("event", {
+      events,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500);
+  }
+});
+
 // Todo: GET route to redirect for login
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
