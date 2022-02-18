@@ -7,7 +7,9 @@
   <p class="weather-icon">Weather: {{{get_display_displayIcon}}}</p>
   <p class="event-desc">Description: {{data.events.event_description}}</p>
   <p class="event-creator">Created by: User {{data.events.user_name}}</p>
-  <p class="image" source={{photo.image}} aria-label="photo">Photo: </p>
+  {{#each data.events.photos as |photo|}}
+  <img class="image" src="/images/{{photo.image}}" aria-label="photo">Photo: </img>
+  {{/each}}
   <p class="event-price">Registration Fee: ${{data.events.fee}} </p>
   <p id="userId">{{data.userId}}</p>
   <p>

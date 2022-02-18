@@ -1,25 +1,38 @@
 <div class="dash-container">
   <div class="row">
     <div class="col-auto">
-      <h2>{{user_ name}}'s Dashboard</h2>
+      <h2>{{ data.user.name }}'s Dashboard</h2>
     </div>
   </div>
   <div class="col-auto">
+    <form>
+    <label for="eventTitle">Title</label>
+    <input type="text" id="eventTitle" name="eventTitle" placeholder="Title">
+    <label for="eventDescription">Description</label>
+    <input type="text" id="eventDescription" name="eventDescription" placeholder="Insert your post body here">
+    <label for="eventDate">Date</label>
+    <input type="text" id="eventDate" name="eventDate" placeholder="1/1/2000">
+    <label for="eventCity">City</label>
+    <input type="text" id="eventCity" name="eventCity" placeholder="Atlanta">
+    <label for="eventState"> State </label>
+    <input type="text" id="eventState" name="eventState" placeholder="Georgia">
+    <label for="eventFee">Fee Amount</label>
+    <input type="text" name="eventFee" id="eventFee" placeholder="50">
     <button type="submit" class="btn btn-primary"><a href="/createEvent" class="create-class">Create New Event</a></button>
+    </form>
   </div>
 </div>
 
-{{#if events.length}}
+{{#if data.user.events.length}}
 <div class="dash-container">
   <h3>Created Events:</h3>
   <div class="row">
-    {{#each events as |event| }}
+    {{#each data.user.events as |event| }}
     <div class="col">
       <div class="cards" id="event-post">
         <div class="card-body">
-          <h5 class="card-title">{{events.title}}</h5>
-          <h6 class="card-date">Created on: {{format_date events.created_date}}</h6>
-          <button class="btn btn-primary"><a href="/event/{{events.id}}">View Your Events</a></button>
+          <h5 class="card-title">{{event.title}}</h5>
+          <h6 class="card-date">Created on: {{ event.event_date}}</h6>
         </div>
       </div>
     </div>

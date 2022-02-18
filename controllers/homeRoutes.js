@@ -30,10 +30,10 @@ router.get("/", async (req, res) => {
 router.get("/event/:id", async (req, res) => {
   try {
     const eventData = await Events.findByPk(req.params.id, {
-      include: {
+      include: [{
         model: User,
         attributes: ["id", "name"],
-      },
+      },Photo]
     });
 
     const events = eventData.get({ plain: true });
@@ -53,9 +53,12 @@ router.get("/event/:id", async (req, res) => {
   
       let weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${WeatherApiKey}`);
   
-      console.log(weatherResponse);
+
       let today = new Date(Date.now())
-      let daysOut = eventDate.getDate() - today.getDate() //TODO: TEST THIS.
+      
+
+      var oneDay = 1000 * 60 * 60 * 24;
+      let daysOut = Math.floor((eventDate - today)/oneDay);
       function kelvintocelsius(kelvin){
         let celsius = kelvin - 273.15;
         return celsius;
@@ -70,24 +73,40 @@ router.get("/event/:id", async (req, res) => {
         return celsiustofahrenheit(kelvintocelsius(kelvin));
         
     }
+    
+    let high = 0;
+    let low = '';
+    let morn = '';
+    let eve = '';
+    let dayTemp = '';
+    let night = ''
+    let humidity = '';
 
-
+    if(weatherResponse.data.daily[daysOut]){
+      high = kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.max).toString().substring(0,4);
+      low = kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.min).toString().substring(0,4);
+      morn = kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.morn).toString().substring(0,4);
+      eve = kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.eve).toString().substring(0,4);
+      dayTemp = kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.day).toString().substring(0,4);
+      night = kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.night).toString().substring(0,4);
+      humidity = kelvintofahrenheit(weatherResponse.data.daily[daysOut].humidity).toString().substring(0,4);
+    }
+    
     res.render("event", {
       data:{
       events,
       formattedDate,
       formattedTime,
-      loggedIn: req.session.loggedIn,
+      loggedIn: req.session.logged_in,
       userId: req.session.user_id,
-
       city: req.params['city_name'],
-      high: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.max).toString().substring(0,4),
-      low: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.min).toString().substring(0,4),
-      morn: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.morn).toString().substring(0,4),
-      eve: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.eve).toString().substring(0,4),
-      dayTemp: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.day).toString().substring(0,4),
-      night: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.night).toString().substring(0,4),
-      humidity: kelvintofahrenheit(weatherResponse.data.daily[daysOut].humidity).toString().substring(0,4),
+      high,
+      low,
+      morn,
+      eve,
+      dayTemp,
+      night,
+      humidity
     }
     });
   } catch (err) {
@@ -104,11 +123,12 @@ router.get('/dashboard', withAuth, async (req, res) => {
       include: {model: Events}
     })
 
-    const user = userData.get({ plain: true })
+    const user = userData.get({ plain: true });
 
+    console.log(user);
     res.render('dashboard', { data: {
       user,
-      logged_in: true
+      loggedIn: req.session.logged_in
     }
     })
   } catch (err) {
