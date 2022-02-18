@@ -35,11 +35,13 @@ router.get("/event/:id", async (req, res) => {
     const events = eventData.get({ plain: true });
       let eventDate = new Date(events.event_date);
       const month = eventDate.toLocaleString('default', { month: 'long' });
-      let formattedDate = `${month} ${eventDate.getDate()}, ${eventDate.getFullYear()} ${eventDate.toLocaleTimeString()}`;
+      let formattedDate = `${month} ${eventDate.getDate()}, ${eventDate.getFullYear()} `;
+      let formattedTime = `${eventDate.toLocaleTimeString()}`;
       console.log(req.session)
     res.render("event", { data : {
       events,
       formattedDate,
+      formattedTime,
       loggedIn: req.session.logged_in,
       userId: req.session.user_id,
     }
