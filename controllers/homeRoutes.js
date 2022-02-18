@@ -82,7 +82,7 @@ router.get("/event/:id", async (req, res) => {
 
       city: req.params['city_name'],
       // high: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.max).toString().substring(0,4),
-      low: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.min).toString().substring(0,4),
+      // low: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.min).toString().substring(0,4),
       morn: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.morn).toString().substring(0,4),
       eve: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.eve).toString().substring(0,4),
       dayTemp: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.day).toString().substring(0,4),
