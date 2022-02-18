@@ -29,10 +29,11 @@
   <div class="row">
     {{#each data.user.events as |event| }}
     <div class="col">
-      <div class="cards" id="event-post">
+      <div class="dash-cards" id="event-post">
         <div class="card-body">
           <h5 class="card-title">{{event.title}}</h5>
-          <h6 class="card-date">Created on: {{ event.event_date}}</h6>
+          <p class="card-description"><b>Description:</b> {{event.event_description}}</p>
+          <p class="card-date"><b>Created on:</b> {{ event.event_date}}</p>
         </div>
       </div>
     </div>
