@@ -110,29 +110,6 @@ p {
     text-align: center;
 }
 
-<<<<<<< HEAD
-form {
-    overflow: hidden;
-}
-
-label {
-    float: left;
-    width: 100px;
-    padding-right: 24px;
-}
-
-input {
-    float: left;
-    width: calc(100% - 100px);
-
-}
-
-button {
-    float: left;
-    width: 200px;
-}
-=======
->>>>>>> main
 
 .dash-cards {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -152,16 +129,8 @@ button {
 .created-events {
     color: white;
 }
-<<<<<<< HEAD
-
-#create-btn {
-    margin-top: 15px;
-    margin-bottom: 30px;
-}
-=======
 .center {
     display: flex;
     justify-content: center;
     align-items: center;
   }
->>>>>>> main
