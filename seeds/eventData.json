@@ -38,14 +38,5 @@
         "event_description": "The SAG is having a conference to discuss movie making in a pandemic world and current labor negotiations between the guild and top level production companies.",
         "fee": 150,
         "user_id": 7
-    },
-    {
-        "title": "Shaq's test event",
-        "event_date": "2/25/2022",
-        "location_city": "Los Angeles",
-        "location_state": "CA",
-        "event_description": "This event is a test.",
-        "fee": 150000,
-        "user_id": 10
     }
 ]

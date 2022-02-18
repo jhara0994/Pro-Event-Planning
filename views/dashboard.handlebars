@@ -18,7 +18,7 @@
     <input type="text" id="eventState" name="eventState" placeholder="Georgia">
     <label for="eventFee">Fee Amount: </label>
     <input type="text" name="eventFee" id="eventFee" placeholder="50">
-    <button type="submit" class="btn btn-primary" id="create-btn"><a href="/createEvent" class="create-class">Create New Event</a></button>
+    <button class="btn btn-primary"><a class="create-class" id ="eventSubmit">Create New Event</a></button>
     </form>
   </div>
 </div>
@@ -40,6 +40,6 @@
     {{/each}}
   </div>
 </div>
-
-{{!-- <script src="/public/js/dashboard.js"></script> --}}
 {{/if}}
+<p id="userId">{{data.user.id}}</p>
+<script src="/js/dashboard.js"></script>

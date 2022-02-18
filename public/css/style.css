@@ -65,6 +65,10 @@ img {
     padding-top: 15px;
 }
 
+ul {
+    text-align: center;
+}
+
 .column {
     float: left;
     width: 25%;
@@ -106,6 +110,7 @@ p {
     text-align: center;
 }
 
+<<<<<<< HEAD
 form {
     overflow: hidden;
 }
@@ -126,6 +131,8 @@ button {
     float: left;
     width: 200px;
 }
+=======
+>>>>>>> main
 
 .dash-cards {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -145,8 +152,16 @@ button {
 .created-events {
     color: white;
 }
+<<<<<<< HEAD
 
 #create-btn {
     margin-top: 15px;
     margin-bottom: 30px;
 }
+=======
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+>>>>>>> main
