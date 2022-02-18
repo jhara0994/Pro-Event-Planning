@@ -92,6 +92,7 @@ router.get("/event/:id", async (req, res) => {
     let dayTemp = '';
     let night = ''
     let humidity = '';
+    let weatherType = '';
 
     if(weatherResponse.data.daily[daysOut]){
       high = kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.max).toString().substring(0,4);
@@ -101,6 +102,7 @@ router.get("/event/:id", async (req, res) => {
       dayTemp = kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.day).toString().substring(0,4);
       night = kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.night).toString().substring(0,4);
       humidity = kelvintofahrenheit(weatherResponse.data.daily[daysOut].humidity).toString().substring(0,4);
+      weatherType = weatherResponse.data.daily[daysOut].weather[0].main;
     }
     
     res.render("event", {
@@ -118,6 +120,7 @@ router.get("/event/:id", async (req, res) => {
       dayTemp,
       night,
       humidity,
+      weatherType,
       rsvps
     }
     });

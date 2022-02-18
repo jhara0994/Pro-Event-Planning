@@ -4,7 +4,23 @@
   <p class="event-location"><b>Location:</b> {{data.events.location_city}}, {{data.events.location_state}}</p>
   <p class="event-date"><b>Date:</b> {{data.formattedDate}}</p>
   <p class="event-time"><b>Time:</b> {{data.formattedTime}}</p>
-  <p class="weather-icon"><b>Weather:</b> {{{get_display_displayIcon}}}</p>
+  <p class="weather-icon"><b>Weather:</b>
+  {{#if data.high}}
+    <div style="text-align: center;">
+        <h2><span style="color: red">⬆</span> High: {{data.high}}°F</h2>
+        <h2><span style="color: blue">⬇</span> Low: {{data.low}}°F</h2>
+        <div>
+            <div>🌄 Morning: {{data.morn }}°F</div>
+            <div>☀ Day: {{data.dayTemp}}°F</div>
+            <div>🌅 Evening: {{data.eve}}°F</div>
+            <div>🌙 Night: {{data.night}}°F</div>
+        </div>
+      </div>
+  {{else}}
+    No available weather at this time. Check back closer to the event date!
+  {{/if}}
+  
+  </p>
   <p class="event-desc"><b>Description:</b> {{data.events.event_description}}</p>
   <p class="event-creator"><b>Created by:</b> {{data.events.user.name}}</p>
   {{#each data.events.photos as |photo|}}
