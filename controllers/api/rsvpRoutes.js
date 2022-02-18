@@ -16,8 +16,17 @@ router.get('/', async (req, res) => {
 // CREATE new RSVP
 router.post('/', async (req, res) => {
     try {
-      const rsvpData = await Rsvp.create(req.body)
+      const existingRsvp = await Rsvp.findOne({
+        where: req.body
+      });
+      if (!existingRsvp){
+        const rsvpData = await Rsvp.create(req.body)
       res.status(200).json(rsvpData);
+      }
+      else{
+       console.log('Duplicate rsvp refused')
+      }
+      
     } catch (err) {
       res.status(400).json(err);
     }
