@@ -20,6 +20,11 @@ Events.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    // event_time: {
+    //   type: DataTypes.TIME,
+    //   allowNull: false,
+    //   defaultValue: DataTypes.NOW,
+    // },
     location_city: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -37,13 +42,6 @@ Events.init(
     fee: {
       type: DataTypes.INTEGER
     },
-    // creator_name: {
-    //   type: DataTypes.STRING
-    // //   references: {
-    // //     model: 'user',
-    // //     key: 'name'
-    // //   }
-    // },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -51,7 +49,14 @@ Events.init(
         model: 'user',
         key: 'id'
       }
-    }
+    },
+    // photo: {
+    //   type: DataTypes.STRING,
+    //   references: {
+    //     model: 'photo',
+    //     key: 'image'
+    //   }
+    // }
   },
   {
     sequelize,

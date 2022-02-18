@@ -45,7 +45,16 @@ a:hover {
 
 body {
     background-image: url("../images/event_bg.jpeg");
-    background-size: 100%;
+    background-size: 120%;
+}
+
+label {
+    color: white;
+    margin-right: 5px;
+}
+
+input {
+    margin-right: 15px;
 }
 
 .column {
@@ -72,7 +81,9 @@ body {
     border-radius: 5px;
     background-color: lightblue;
     width: 40%;
-    margin: auto;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card-container {
