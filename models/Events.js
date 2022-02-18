@@ -44,6 +44,7 @@ Events.init(
     // //     key: 'name'
     // //   }
     // },
+<<<<<<< HEAD
     // image: {
     //   type: DataTypes.STRING,
     //   references: {
@@ -51,6 +52,8 @@ Events.init(
     //     key: 'image'
     //   }
     // },
+=======
+>>>>>>> main
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Events, Weather, Photo } = require("../models");
+const { User, Events, Weather, Photo, Rsvp } = require("../models");
 const withAuth = require("../utils/auth.js");
 
 // Todo: GET route to show all events on homepage
@@ -28,19 +28,40 @@ router.get("/event/:id", async (req, res) => {
     const eventData = await Events.findByPk(req.params.id, {
       include: {
         model: User,
-        attributes: ["id"],
+        attributes: ["id", "name"],
       },
     });
 
     const events = eventData.get({ plain: true });
-    res.render("event", {
+      let eventDate = new Date(events.event_date);
+      const month = eventDate.toLocaleString('default', { month: 'long' });
+      let formattedDate = `${month} ${eventDate.getDate()}, ${eventDate.getFullYear()} ${eventDate.toLocaleTimeString()}`;
+      console.log(req.session)
+    res.render("event", { data : {
       events,
-      loggedIn: req.session.loggedIn,
+      formattedDate,
+      loggedIn: req.session.logged_in,
+      userId: req.session.user_id,
+    }
     });
   } catch (err) {
     console.log(err);
+    res.status(500);
   }
 });
+
+// router.post('/registration/:event_id/:user_id', async (req, res) =>{
+//   try {
+//     const newRsvp = Rsvp.create({
+//       user_id: req.params.user_id,
+//       event_id: req.params.event_id
+//     });
+//     res.status(200).json(newRsvp);
+//   } catch (err) {
+//     res.status(500);
+//   }
+// })
+
 
 // Todo: GET route to redirect for login
 router.get('/login', (req, res) => {

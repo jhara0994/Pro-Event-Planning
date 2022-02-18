@@ -23,8 +23,11 @@ router.post('/', async (req, res) => {
       password: req.body.password,
     });
 
+    const plainUser = await userData.get({plain: true});
+
     req.session.save(() => {
       req.session.logged_in = true;
+      req.session.user_id = plainUser.id;
 
       res.status(200).json(userData);
     });
@@ -58,10 +61,10 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password. Please try again!' });
       return;
     }
-
+    let plainUser = userData.get({plain: true});
     req.session.save(() => {
       req.session.logged_in = true;
-
+      req.session.user_id = plainUser.id;
       res
         .status(200)
         .json({ user: userData, message: 'You are now logged in!' });
