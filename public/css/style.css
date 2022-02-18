@@ -186,8 +186,9 @@ p {
     border-radius: 5px;
     background-color: lightblue;
     height: auto;
-    width: 30%;
-    margin: auto;
+    width: 50%;
+    margin-left: 225px;
+    margin-right: 100px;
 }
 
 .card-title {
@@ -195,8 +196,18 @@ p {
     text-align: center;
 }
 
+.dash-cont {
+    float: left;
+}
+
 .created-events {
     color: white;
+    font-size: 20px;
+    margin-left: 300px;
+    margin-top: 80px;
+    background-color: black;
+    opacity: 0.9;
+    width: 30%;
 }
 
 .create-class:hover {
