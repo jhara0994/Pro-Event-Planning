@@ -100,7 +100,6 @@ img {
 
 h3 {
     text-align: center;
-    color: white;
 }
 
 p {
@@ -120,4 +119,8 @@ p {
 .card-title {
     font-size: 20px;
     text-align: center;
+}
+
+.created-events {
+    color: white;
 }
