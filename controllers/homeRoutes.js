@@ -16,9 +16,10 @@ router.get("/", async (req, res) => {
     });
 
     const events = eventData.map((Events) => Events.get({ plain: true }));
-    res.render("homepage", {
+    res.render("homepage", { data: {
       events,
-      loggedIn: req.session.loggedIn,
+      loggedIn: req.session.logged_in,
+    }
     });
   } catch (err) {
     console.log(err);
@@ -94,6 +95,26 @@ router.get("/event/:id", async (req, res) => {
     res.status(500);
   }
 });
+
+// GET user dashboard 
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password']},
+      include: {model: Events}
+    })
+
+    const user = userData.get({ plain: true })
+
+    res.render('dashboard', { data: {
+      user,
+      logged_in: true
+    }
+    })
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
 
 // router.post('/registration/:event_id/:user_id', async (req, res) =>{
 //   try {
