@@ -1,14 +1,17 @@
 <div class="row card mb-4 project">
   <div class="card-container col-md-7">
   <h3 class="event-title">Title: {{data.events.title}}</h3>
-  <p class="event-date"><b>Date:</b> {{data.formattedDate}}</p>
-  <p class="event-time"><b>Time:</b> {{data.formattedTime}}</p>
-  <p class="event-city"><b>Location:</b> {{data.events.location_city}}, {{data.events.location_state}}</p>
-  <p class="weather-icon"><b>Weather:</b> {{data.dayTemp}}° {{data.dayIcon}}</p>
-  <p class="event-desc"><b>Description:</b> {{data.events.event_description}}</p>
-  <p class="event-creator"><b>Created by:</b> {{data.events.user_name}}</p>
-  <p class="image" source={{data.events.photo}} aria-label="photo">Photo: </p>
-  <p class="event-price"><b>Registration Fee:</b> ${{data.events.fee}} </p>
+  <p class="event-id">ID: {{data.events.id}}</p>
+  <p class="event-date">Date: {{data.formattedDate}}</p>
+  <p class="event-time">Time: {{data.formattedTime}}</p>
+  <p class="weather-icon">Weather: {{{get_display_displayIcon}}}</p>
+  <p class="event-desc">Description: {{data.events.event_description}}</p>
+  <p class="event-creator">Created by: User {{data.events.user_name}}</p>
+  {{#each data.events.photos as |photo|}}
+  <img class="image" src="/images/{{photo.image}}" aria-label="photo">Photo: </img>
+  {{/each}}
+  <p class="event-price">Registration Fee: ${{data.events.fee}} </p>
+  <p id="userId">{{data.userId}}</p>
   <p>
     {{#if data.loggedIn}}
     <button class="btn btn-primary" id = "registerButton">Register Now</button>
