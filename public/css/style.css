@@ -57,6 +57,14 @@ input {
     margin-right: 15px;
 }
 
+img {
+    max-width: 50%;
+    height: auto;
+    margin: auto;
+    display: block;
+    padding-top: 15px;
+}
+
 .column {
     float: left;
     width: 25%;

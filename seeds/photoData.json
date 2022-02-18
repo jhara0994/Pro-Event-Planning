@@ -1,27 +1,27 @@
 [
     {
         "image": "conference_center.jpeg",
-        "event_id": 1,
+        "event_id": 3,
         "user_id": 3
     },
     {
         "image": "party.jpeg",
-        "event_id": 1,
+        "event_id": 2,
         "user_id": 1
     },
     {
         "image": "color_party.jpeg",
-        "event_id": 2,
+        "event_id": 1,
         "user_id": 2
     },
     {
         "image": "foam_party.jpeg",
-        "event_id": 2,
+        "event_id": 1,
         "user_id": 2
     },
     {
         "image": "catalina_wm.jpeg",
-        "event_id": 2,
+        "event_id": 4,
         "user_id": 3
     }
 ]
