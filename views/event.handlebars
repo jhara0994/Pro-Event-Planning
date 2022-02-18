@@ -11,11 +11,22 @@
   <img class="image" src="/images/{{photo.image}}" aria-label="photo"></img>
   {{/each}}
   <p class="event-price"><b>Registration Fee:</b> ${{data.events.fee}} </p>
-  <p>
-    {{#if data.loggedIn}}
+  <ul>
+    RSVP List:
+    {{#each data.rsvps as |rsvp| }}
+    <li>
+      {{rsvp.user.name}}
+    </li>
+  
+  {{/each}}
+  </ul>
+  {{#if data.loggedIn}}
+  <div class="center">
     <button class="btn btn-primary" id = "registerButton">Register Now</button>
+  </div>
     {{/if}}
-  </p>
   </div>
 </div>
+<p id="userId">{{data.userId}}</p>
+<p id="eventId">{{data.events.id}}</p>
 <script src="/js/rsvp.js"></script>

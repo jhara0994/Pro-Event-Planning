@@ -65,6 +65,10 @@ img {
     padding-top: 15px;
 }
 
+ul {
+    text-align: center;
+}
+
 .column {
     float: left;
     width: 25%;
@@ -106,6 +110,7 @@ p {
     text-align: center;
 }
 
+
 .dash-cards {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -124,3 +129,8 @@ p {
 .created-events {
     color: white;
 }
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

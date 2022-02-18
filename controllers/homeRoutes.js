@@ -33,10 +33,21 @@ router.get("/event/:id", async (req, res) => {
       include: [{
         model: User,
         attributes: ["id", "name"],
-      },Photo]
+      },
+      Photo,
+    ]
     });
-
     const events = eventData.get({ plain: true });
+    const rsvpData = await Rsvp.findAll({
+      include: User,
+      where: {
+        event_id: events.id
+      }
+    });
+    
+    const rsvps = rsvpData.map((Rsvp) => Rsvp.get({ plain: true }));
+
+    
       let eventDate = new Date(events.event_date);
       const month = eventDate.toLocaleString('default', { month: 'long' });
       let formattedDate = `${month} ${eventDate.getDate()}, ${eventDate.getFullYear()} `;
@@ -106,7 +117,8 @@ router.get("/event/:id", async (req, res) => {
       eve,
       dayTemp,
       night,
-      humidity
+      humidity,
+      rsvps
     }
     });
   } catch (err) {
