@@ -1,24 +1,24 @@
 <div class="dash-container">
   <div class="row">
     <div class="col-auto">
-      <h2>{{ data.user.name }}'s Dashboard</h2>
+      <h2 class="dash-name">{{ data.user.name }}'s Dashboard</h2>
     </div>
   </div>
   <div class="col-auto">
-    <form>
-    <label for="eventTitle">Title: </label>
-    <input type="text" id="eventTitle" name="eventTitle" placeholder="Title">
-    <label for="eventDescription">Description: </label>
-    <input type="text" id="eventDescription" name="eventDescription" placeholder="Describe your event">
-    <label for="eventDate">Date: </label>
-    <input type="text" id="eventDate" name="eventDate" placeholder="1/1/2000">
-    <label for="eventCity">City: </label>
-    <input type="text" id="eventCity" name="eventCity" placeholder="Atlanta">
-    <label for="eventState">State: </label>
-    <input type="text" id="eventState" name="eventState" placeholder="Georgia">
-    <label for="eventFee">Fee Amount: </label>
-    <input type="text" name="eventFee" id="eventFee" placeholder="50">
-    <button class="btn btn-primary"><a class="create-class" id ="eventSubmit">Create New Event</a></button>
+    <form class="dash-form">
+    <label class="dash-label" for="eventTitle">Title: </label>
+    <input class="dash-input" type="text" id="eventTitle" name="eventTitle" placeholder="Title">
+    <label class="dash-label" for="eventDescription">Description: </label>
+    <input class="dash-input" type="text" id="eventDescription" name="eventDescription" placeholder="Describe your event">
+    <label class="dash-label" for="eventDate">Date: </label>
+    <input class="dash-input" type="text" id="eventDate" name="eventDate" placeholder="1/1/2000">
+    <label class="dash-label" for="eventCity">City: </label>
+    <input class="dash-input" type="text" id="eventCity" name="eventCity" placeholder="Atlanta">
+    <label class="dash-label" for="eventState">State: </label>
+    <input class="dash-input" type="text" id="eventState" name="eventState" placeholder="Georgia">
+    <label class="dash-label" for="eventFee">Fee Amount: </label>
+    <input class="dash-input" type="text" name="eventFee" id="eventFee" placeholder="50">
+    <button class="btn btn-primary" id="dash-btn"><a class="create-class" id ="eventSubmit">Create New Event</a></button>
     </form>
   </div>
 </div>
