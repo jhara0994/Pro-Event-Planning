@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const { User, Events, Weather, Photo, Rsvp } = require("../models");
 const withAuth = require("../utils/auth.js");
-
+const axios = require('axios');
 const WeatherApiKey = "2a962a7b9345f5d3ab23257ed8d563d6";
+
 
 // Todo: GET route to show all events on homepage
 router.get("/", async (req, res) => {
@@ -39,14 +40,7 @@ router.get("/event/:id", async (req, res) => {
       const month = eventDate.toLocaleString('default', { month: 'long' });
       let formattedDate = `${month} ${eventDate.getDate()}, ${eventDate.getFullYear()} `;
       let formattedTime = `${eventDate.toLocaleTimeString()}`;
-      console.log(req.session)
-    res.render("event", { data : {
-      events,
-      formattedDate,
-      formattedTime,
-      loggedIn: req.session.logged_in,
-      userId: req.session.user_id,
-    }
+      
       
       let cityName = events.location_city //TODO How do we know where the user is or where the event is?
 
@@ -61,22 +55,40 @@ router.get("/event/:id", async (req, res) => {
       console.log(weatherResponse);
       let today = new Date(Date.now())
       let daysOut = eventDate.getDate() - today.getDate() //TODO: TEST THIS.
+      function kelvintocelsius(kelvin){
+        let celsius = kelvin - 273.15;
+        return celsius;
+    
+    }
+    function  celsiustofahrenheit(celsius){
+        let fahrenheit = celsius * 9/5 + 32;
+        return fahrenheit;
+    
+    }
+    function kelvintofahrenheit (kelvin){
+        return celsiustofahrenheit(kelvintocelsius(kelvin));
+        
+    }
 
 
     res.render("event", {
+      data:{
       events,
       formattedDate,
+      formattedTime,
       loggedIn: req.session.loggedIn,
+      userId: req.session.user_id,
 
       city: req.params['city_name'],
-      high: weatherResponse.data.daily[daysOut].temp.max,
-      low: weatherResponse.data.daily[daysOut].temp.min,
-      morn: weatherResponse.data.daily[daysOut].temp.morn,
-      eve: weatherResponse.data.daily[daysOut].temp.eve,
-      dayTemp: weatherResponse.data.daily[daysOut].temp.day,
-      night: weatherResponse.data.daily[daysOut].temp.night,
-      humidity: weatherResponse.data.daily[daysOut].humidity,
+      high: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.max).toString().substring(0,4),
+      low: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.min).toString().substring(0,4),
+      morn: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.morn).toString().substring(0,4),
+      eve: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.eve).toString().substring(0,4),
+      dayTemp: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.day).toString().substring(0,4),
+      night: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.night).toString().substring(0,4),
+      humidity: kelvintofahrenheit(weatherResponse.data.daily[daysOut].humidity).toString().substring(0,4),
       day: `${daysOut + 1} days out`
+    }
     });
   } catch (err) {
     console.log(err);

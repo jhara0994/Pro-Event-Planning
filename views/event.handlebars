@@ -19,15 +19,15 @@
 </div>
 <script src="/js/rsvp.js"></script>
 <h1>Weather</h1>
-<p>City: {{ city }}</p>
-<p>Temp: {{ temp }}</p>
-<p>Humidity: {{ humidity }}</p>
-<p>Day: {{ day }}</p>
-<h2><span style="color: red">⬆</span> High: {{high}}</h2>
-<h2><span style="color: blue">⬇</span> Low: {{low}}</h2>
+<p>City: {{ data.events.location_city }}</p>
+<p>Temp: {{ data.dayTemp }}</p>
+<p>Humidity: {{ data.humidity }}</p>
+<p>Day: {{ data.day }}</p>
+<h2><span style="color: red">⬆</span> High: {{data.high}}</h2>
+<h2><span style="color: blue">⬇</span> Low: {{data.low}}</h2>
 <div>
-    <div>🌄 Morning: {{morn }}</div>
-    <div>☀ Day: {{dayTemp}}</div>
-    <div>🌅 Evening: {{eve}}</div>
-    <div>🌙 Night: {{night}}</div>
+    <div>🌄 Morning: {{data.morn }}</div>
+    <div>☀ Day: {{data.dayTemp}}</div>
+    <div>🌅 Evening: {{data.eve}}</div>
+    <div>🌙 Night: {{data.night}}</div>
 </div>
