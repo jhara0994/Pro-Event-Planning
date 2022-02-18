@@ -45,7 +45,24 @@ a:hover {
 
 body {
     background-image: url("../images/event_bg.jpeg");
-    background-size: 100%;
+    background-size: 120%;
+}
+
+label {
+    color: white;
+    margin-right: 5px;
+}
+
+input {
+    margin-right: 15px;
+}
+
+img {
+    max-width: 50%;
+    height: auto;
+    margin: auto;
+    display: block;
+    padding-top: 15px;
 }
 
 .column {
@@ -72,7 +89,9 @@ body {
     border-radius: 5px;
     background-color: lightblue;
     width: 40%;
-    margin: auto;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card-container {
@@ -81,8 +100,24 @@ body {
 
 h3 {
     text-align: center;
+    color: white;
 }
 
 p {
+    text-align: center;
+}
+
+.dash-cards {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    background-color: lightblue;
+    height: auto;
+    width: 30%;
+    margin: auto;
+}
+
+.card-title {
+    font-size: 20px;
     text-align: center;
 }

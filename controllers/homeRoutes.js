@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const { User, Events, Weather, Photo, Rsvp } = require("../models");
 const withAuth = require("../utils/auth.js");
-
+const axios = require('axios');
 const WeatherApiKey = "2a962a7b9345f5d3ab23257ed8d563d6";
+
 
 // Todo: GET route to show all events on homepage
 router.get("/", async (req, res) => {
@@ -15,9 +16,10 @@ router.get("/", async (req, res) => {
     });
 
     const events = eventData.map((Events) => Events.get({ plain: true }));
-    res.render("homepage", {
+    res.render("homepage", { data: {
       events,
-      loggedIn: req.session.loggedIn,
+      loggedIn: req.session.logged_in,
+    }
     });
   } catch (err) {
     console.log(err);
@@ -28,10 +30,10 @@ router.get("/", async (req, res) => {
 router.get("/event/:id", async (req, res) => {
   try {
     const eventData = await Events.findByPk(req.params.id, {
-      include: {
+      include: [{
         model: User,
         attributes: ["id", "name"],
-      },
+      },Photo]
     });
 
     const events = eventData.get({ plain: true });
@@ -39,14 +41,7 @@ router.get("/event/:id", async (req, res) => {
       const month = eventDate.toLocaleString('default', { month: 'long' });
       let formattedDate = `${month} ${eventDate.getDate()}, ${eventDate.getFullYear()} `;
       let formattedTime = `${eventDate.toLocaleTimeString()}`;
-      console.log(req.session)
-    res.render("event", { data : {
-      events,
-      formattedDate,
-      formattedTime,
-      loggedIn: req.session.logged_in,
-      userId: req.session.user_id,
-    }
+      
       
       let cityName = events.location_city //TODO How do we know where the user is or where the event is?
 
@@ -58,31 +53,88 @@ router.get("/event/:id", async (req, res) => {
   
       let weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${WeatherApiKey}`);
   
-      console.log(weatherResponse);
+
       let today = new Date(Date.now())
-      let daysOut = eventDate.getDate() - today.getDate() //TODO: TEST THIS.
+      
 
+      var oneDay = 1000 * 60 * 60 * 24;
+      let daysOut = Math.floor((eventDate - today)/oneDay);
+      function kelvintocelsius(kelvin){
+        let celsius = kelvin - 273.15;
+        return celsius;
+    
+    }
+    function  celsiustofahrenheit(celsius){
+        let fahrenheit = celsius * 9/5 + 32;
+        return fahrenheit;
+    
+    }
+    function kelvintofahrenheit (kelvin){
+        return celsiustofahrenheit(kelvintocelsius(kelvin));
+        
+    }
+    
+    let high = 0;
+    let low = '';
+    let morn = '';
+    let eve = '';
+    let dayTemp = '';
+    let night = ''
+    let humidity = '';
 
+    if(weatherResponse.data.daily[daysOut]){
+      high = kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.max).toString().substring(0,4);
+      low = kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.min).toString().substring(0,4);
+      morn = kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.morn).toString().substring(0,4);
+      eve = kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.eve).toString().substring(0,4);
+      dayTemp = kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.day).toString().substring(0,4);
+      night = kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.night).toString().substring(0,4);
+      humidity = kelvintofahrenheit(weatherResponse.data.daily[daysOut].humidity).toString().substring(0,4);
+    }
+    
     res.render("event", {
+      data:{
       events,
       formattedDate,
-      loggedIn: req.session.loggedIn,
-
+      formattedTime,
+      loggedIn: req.session.logged_in,
+      userId: req.session.user_id,
       city: req.params['city_name'],
-      high: weatherResponse.data.daily[daysOut].temp.max,
-      low: weatherResponse.data.daily[daysOut].temp.min,
-      morn: weatherResponse.data.daily[daysOut].temp.morn,
-      eve: weatherResponse.data.daily[daysOut].temp.eve,
-      dayTemp: weatherResponse.data.daily[daysOut].temp.day,
-      night: weatherResponse.data.daily[daysOut].temp.night,
-      humidity: weatherResponse.data.daily[daysOut].humidity,
-      day: `${daysOut + 1} days out`
+      high,
+      low,
+      morn,
+      eve,
+      dayTemp,
+      night,
+      humidity
+    }
     });
   } catch (err) {
     console.log(err);
     res.status(500);
   }
 });
+
+// GET user dashboard 
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password']},
+      include: {model: Events}
+    })
+
+    const user = userData.get({ plain: true });
+
+    console.log(user);
+    res.render('dashboard', { data: {
+      user,
+      loggedIn: req.session.logged_in
+    }
+    })
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
 
 // router.post('/registration/:event_id/:user_id', async (req, res) =>{
 //   try {

@@ -1,15 +1,16 @@
 <div class="row card mb-4 project">
   <div class="card-container col-md-7">
-  <h3 class="event-title">Title: {{data.events.title}}</h3>
-  <p class="event-id">ID: <p id="eventId">{{data.events.id}}</p></p>
+  <h3 class="event-title">{{data.events.title}}</h3>
+  <p class="event-location">Location: {{data.events.location_city}}, {{data.events.location_state}}</p>
   <p class="event-date">Date: {{data.formattedDate}}</p>
   <p class="event-time">Time: {{data.formattedTime}}</p>
   <p class="weather-icon">Weather: {{{get_display_displayIcon}}}</p>
   <p class="event-desc">Description: {{data.events.event_description}}</p>
-  <p class="event-creator">Created by: User {{data.events.user.name}}</p>
-  <img class="image" source={{photo.image}} aria-label="photo">Photo: </p>
+  <p class="event-creator">Created by: {{data.events.user.name}}</p>
+  {{#each data.events.photos as |photo|}}
+  <img class="image" src="/images/{{photo.image}}" aria-label="photo"></img>
+  {{/each}}
   <p class="event-price">Registration Fee: ${{data.events.fee}} </p>
-  <p id="userId">{{data.userId}}</p>
   <p>
     {{#if data.loggedIn}}
     <button class="btn btn-primary" id = "registerButton">Register Now</button>
@@ -18,16 +19,3 @@
   </div>
 </div>
 <script src="/js/rsvp.js"></script>
-<h1>Weather</h1>
-<p>City: {{ data.events.location_city }}</p>
-<p>Temp: {{ temp }}</p>
-<p>Humidity: {{ humidity }}</p>
-<p>Day: {{ day }}</p>
-<h2><span style="color: red">⬆</span> High: {{high}}</h2>
-<h2><span style="color: blue">⬇</span> Low: {{low}}</h2>
-<div>
-    <div>🌄 Morning: {{morn }}</div>
-    <div>☀ Day: {{dayTemp}}</div>
-    <div>🌅 Evening: {{eve}}</div>
-    <div>🌙 Night: {{night}}</div>
-</div>
