@@ -1,5 +1,5 @@
 const {Router} = require("express");
-const axios = require("axios")
+// const axios = require("axios")
 const apiKey = "2a962a7b9345f5d3ab23257ed8d563d6";
 
 //api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
