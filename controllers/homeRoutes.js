@@ -87,7 +87,6 @@ router.get("/event/:id", async (req, res) => {
       dayTemp: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.day).toString().substring(0,4),
       night: kelvintofahrenheit(weatherResponse.data.daily[daysOut].temp.night).toString().substring(0,4),
       humidity: kelvintofahrenheit(weatherResponse.data.daily[daysOut].humidity).toString().substring(0,4),
-      day: `${daysOut + 1} days out`
     }
     });
   } catch (err) {
