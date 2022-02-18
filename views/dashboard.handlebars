@@ -1,3 +1,4 @@
+
 <div class="dash-container">
   <div class="row">
     <div class="col-auto">
@@ -18,7 +19,7 @@
     <input type="text" id="eventState" name="eventState" placeholder="Georgia">
     <label for="eventFee">Fee Amount</label>
     <input type="text" name="eventFee" id="eventFee" placeholder="50">
-    <button type="submit" class="btn btn-primary"><a href="/createEvent" class="create-class">Create New Event</a></button>
+    <button type="submit" class="btn btn-primary"><a href="/createEvent" class="create-class" id ="eventSubmit">Create New Event</a></button>
     </form>
   </div>
 </div>
@@ -33,13 +34,14 @@
         <div class="card-body">
           <h5 class="card-title">{{event.title}}</h5>
           <p class="card-description"><b>Description:</b> {{event.event_description}}</p>
-          <p class="card-date"><b>Created on:</b> {{ event.event_date}}</p>
+          <p class="card-date"><b>Event Date:</b> {{ event.event_date}}</p>
         </div>
       </div>
     </div>
     {{/each}}
   </div>
 </div>
+<p id="userId">{{data.user.id}}</p>
 
-{{!-- <script src="/public/js/dashboard.js"></script> --}}
+<script src="/js/dashboard.js"></script>
 {{/if}}
