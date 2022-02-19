@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 
 // async..await is not allowed in global scope, must use a wrapper
-async function sendEmail(recipients = '', subject = '', body = '', htmlBody = '') {
+async function sendEmail(recipients, subject = '', body = '', htmlBody = '') {
   let dotenv = require("dotenv").config();
 
   // create reusable transporter object using the default SMTP transport
@@ -32,4 +32,4 @@ async function sendEmail(recipients = '', subject = '', body = '', htmlBody = ''
   });
 }
 
-module.exports = sendEmail;
+module.exports = {sendEmail};
