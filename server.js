@@ -99,7 +99,7 @@ sequelize.sync({ force: false }).then(() => {
       }
       let high = kelvintofahrenheit(body.temp.max);
       let low = kelvintofahrenheit(body.temp.min);
-      await sendEmail(emails, `Weather Update for ${event.title}`, '', `<!DOCTYPE html>
+      await sendEmail(emails, `Weather Update for ${event.title}`, `<!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
