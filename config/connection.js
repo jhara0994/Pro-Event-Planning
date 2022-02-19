@@ -9,7 +9,7 @@ if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(
     'heroku_6bb1a85ff64ed6a',
     'bc4161daa20872',
-    '85d0c14',
+    '85d0c140',
     {
       host: 'us-cdbr-east-05.cleardb.net',
       dialect: 'mysql',
