@@ -24,4 +24,4 @@
 ## Questions:
 ### Github Username: https://github.com/14Kappaman https://github.com/Chiloconcarne https://github.com/jhara0994 https://github.com/shaqrivera
 ### Email: aubrey.crook@gmail.com, b.alvarado@live.com, jharalson29@gmail.com, shaq.rivera@gmail.com
-### For questions concerning this README Generator, please reach out on Github or email to any of the members listed above.
+### For questions concerning The Magic Planner, please reach out on Github or email to any of the members listed above.
